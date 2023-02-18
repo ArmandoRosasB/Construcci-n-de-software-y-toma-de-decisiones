@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/codeChallenge.css">
+    <title>Code Challenge</title>
+</head>
+<body>
+    <div class="layout">
+        <div class="nav">
+            <button onclick="location.href = 'index.html'">Go Back</button>
+            <button onClick="window.location.reload();">Play again</button>
+        </div>
+
+        <div class="head">
+            <h1>Valid <span class="color">Parentheses</span></h1>
+            <h2>Instructions</h2>
+
+            <p>Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. <br><br>
+
+                An input string is valid if: <br><br>
+                
+                Open brackets must be closed by the same type of brackets. <br>
+                Open brackets must be closed in the correct order. <br>
+                Every close bracket has a corresponding open bracket of the same type.
+            </p>
+        </div>
+        <section class="solution">
+            <article class="code">
+                <h2>JavaScript<span class="color"> Function</span> </h2>
+                <code>
+                // Valid Parenthesis<br>
+                class <span class="color">stack</span> {<br>
+                    &emsp;&emsp;&emsp;&emsp;<span class="color">constructor</span>(){<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.arr = [];<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.index = 0;<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.size = 0;<br>
+                    }<br>
+
+                    &emsp;&emsp;&emsp;&emsp;<span class="color">push</span>(element){<br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.arr[this.index] = element;<br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.size++;<br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.index++;<br>
+
+                }<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;<span class="color">top</span>(){<br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if (this.size === 0){<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="color">return</span>;<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="color">return</span> this.arr[this,index - 1];<br>
+                }<br>
+                <br>
+                    &emsp;&emsp;&emsp;&emsp;<span class="color">pop</span>(){<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if (this.size === 0){<br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return;<br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.index--;<br>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.size--;<br>
+                }<br>
+                <br>
+                    &emsp;&emsp;&emsp;&emsp;<span class="color">empty</span>(){<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="color">return</span> this.size == 0;<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+                }<br>
+                <br>
+                <br>
+                <br>
+                function <span class="color"> isValid</span>(s) {<br>
+                &emsp;&emsp;&emsp;&emsp;parentheses = <span class="color">new</span> stack();<br>
+
+                &emsp;&emsp;&emsp;&emsp;if (s[0] == ')' || s[0] == ']' || s[0] == '}'){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="color">return</span> false;<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;for(let i = 0; i < s.length; i++){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if(s[i] == '(' || s[i] == '[' || s[i] == '{'){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;parentheses.<span class="color">push</span>(s[i]);<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;else if (parentheses.<span class="color">empty</span>()){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <span class="color">return</span> false;<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>        
+                &emsp;&emsp;&emsp;&emsp;else if(parentheses.top() == '(' && s[i] == ')'){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;parentheses.<span class="color">pop</span>();<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>        
+                <br>
+                &emsp;&emsp;&emsp;&emsp;else if(parentheses.top() == '[' && s[i] == ']'){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;parentheses.<span class="color">pop</span>();<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>
+                &emsp;&emsp;&emsp;&emsp;else if(parentheses.top() == '{' && s[i] == '}'){<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;parentheses.<span class="color">pop</span>();<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>       
+                &emsp;&emsp;&emsp;&emsp;else{<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="color">return</span> false;<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>              
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                <br>
+                <span class="color">return</span> parentheses.empty();<br><br>
+                }  
+                </code>
+            </article>
+
+            <article class="tests">
+                <h2>Test<span class="color"> cases</span> </h2>
+
+                <input type="text" id="parentheses" placeholder="Type a sequence of parentheses">
+
+                <button id="submit">Check</button>
+
+                <div id="validacion"></div>
+            </article>
+        </div>
+
+    </section>
+
+    <script src="Scripts/app_3.js"></script>
+</body>
+</html>

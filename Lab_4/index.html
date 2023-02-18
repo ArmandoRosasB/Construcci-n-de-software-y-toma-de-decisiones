@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/index_styles.css">
+    <title>Games with JavaScript</title>
+</head>
+<body>
+
+    <div class="layout">
+    <header>
+        <h3>Fun <span class="color">games</span></header></h3>
+    </header>
+
+    <h1>Choose one of <span class="color">these games</span></h1>
+
+    <section class="choice">
+        <article class="game">
+            <h2>Squares and <span class="color">cubes</span></h2>
+            <img src="Media/math.svg" alt="Matematicas">
+            <button onclick="location.href='squaresNCubes.html'">Ir al juego</button>
+        </article>
+        <article class="game">
+            <h2>Try out your <span class="color">mental calculus</span></h2>
+            <img src="Media/think.svg" alt="Calculo">
+            <button onclick="location.href='mathChallenge.html'">Ir al juego</button>
+        </article>
+        <article class="game">
+            <h2>Challenge for <span class="color">programers</span></h2>
+            <img src="Media/code.svg" alt="Codigo">
+            <button onclick="location.href='codeChallenge.html'">Ir al juego</button>
+        </article>
+        <article class="game">
+            <h2>Test <span class="color">functions</span></h2>
+            <img src="Media/test.png" alt="Codigo">
+            <button onclick="location.href='Functions_tests/index.html'">Probar funciones</button>
+        </article>
+    </section>
+
+    <section>
+        <h1><br> Preguntas a <span class="color">responder</span></h1>
+
+        <ol>
+            <li>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</li>
+            <p>Son dos lenguajes de programacion diferentes, por lo que cuentan con bastantes diferencias como por ejemplo: Java necesita <br>
+                compliarse y crea aplicaciones que se ejecutan en maquina, JavaScript por otro lado es interpretado. SIn embargo, ambos <br>
+                lenguajes provienen de C. 
+            </p>
+            <li>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</li>
+            <ul>
+                <li>now(): Devuelve el valor númerico correspondiente al actual número de milisegundos transcurridos desde el 1 de Enero de 1970</li>
+                <li>toString(): Nos devuelven respectivamente la fecha completa como un string</li>
+                <li>getDay(): Nos devuelve el día de la semana del 0 (domingo) al 6 (sábado)</li>
+                <li>getHours(): Nos devuelve la hora actual, desde 0 a 23  (formato 24 horas)</li>
+                <li>getMinutes(): Nos devuelve los minutos actuales, desde 0 a 59</li>
+            </ul>
+            
+            <li>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li>
+                <ul>
+                    <li>push(): Agregar elemento</li>
+                    <li>pop(): Remueve el elemento al final del arreglo</li>
+                    <li>shift(): Remueve el elemento al rpinciop del arreglo</li>
+                    <li>forEach(): Permite iterar el contenido de un array</li>
+                    <li>sort(): Ordena los elementos del array y retorna el arreglo ordenado</li>
+                </ul>
+            <li>¿Cómo se declara una variable con alcance local dentro de una función?</li>
+            <p>Con let</p>
+            <li>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</li>
+            <p>Que esas varaibles estan disponibles en todo el script, por lo que hay que tener cuidado con su uso</p>
+        </ol>
+    </section>
+    </div>
+</body>
+</html>
