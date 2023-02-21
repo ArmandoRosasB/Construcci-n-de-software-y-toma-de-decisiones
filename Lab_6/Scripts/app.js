@@ -85,6 +85,6 @@ let requisitos = document.getElementById("advice");
 
 requisitos.onmouseover = () => {
     alert("Requirements password");
-    alert("Have at least 1 sequence of alphanumeric characters and 1 sequence of non-alphanumeric characters");
+    alert("Have at least 1 sequence of alphanumeric characters and 1 sequence of non-alphanumeric characters. This at least 2 times");
     alert("Warning: Sequences must be between 1 and 3 characters");
 }
