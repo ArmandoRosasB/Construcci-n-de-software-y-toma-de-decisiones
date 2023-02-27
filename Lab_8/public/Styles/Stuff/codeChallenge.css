@@ -1,0 +1,46 @@
+body {
+  background: #3c4043;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.color {
+  color: #fe98d5;
+}
+
+.layout {
+  margin-left: 30px;
+}
+.layout .nav {
+  margin-top: 30px;
+}
+.layout .nav button {
+  background: #fe98d5;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 6px 12px;
+  border: none;
+  margin-right: 20px;
+}
+.layout .head {
+  text-align: center;
+}
+.layout .solution {
+  display: flex;
+  justify-content: space-evenly;
+}
+.layout .solution .tests button {
+  background: #fe98d5;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px 12px;
+  border: none;
+  margin-right: 20px;
+  margin-left: 8px;
+}
+
+/*# sourceMappingURL=codeChallenge.css.map */

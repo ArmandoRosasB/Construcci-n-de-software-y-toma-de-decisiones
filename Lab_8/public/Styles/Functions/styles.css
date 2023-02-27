@@ -1,0 +1,64 @@
+body {
+  background: #3c4043;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.color {
+  color: #fe98d5;
+}
+
+.layout .nav {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.layout .nav button {
+  background: #fe98d5;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 6px 12px;
+  border: none;
+  margin-right: 20px;
+}
+.layout header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.layout .choice {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 100px;
+}
+.layout .choice img {
+  width: 100px;
+  height: 100px;
+}
+.layout .choice .game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  width: 400px;
+  background: #656c71;
+  border-radius: 20px;
+  margin: 50px;
+}
+.layout .choice .game #table {
+  margin: 0 auto;
+}
+.layout .choice .game button {
+  background: #fe98d5;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  margin: 20px 0px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */

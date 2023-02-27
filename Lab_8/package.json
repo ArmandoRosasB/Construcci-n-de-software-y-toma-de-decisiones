@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "http-status-codes": "^2.2.0",
+    "readline-sync": "^1.4.10"
+  }
+}
