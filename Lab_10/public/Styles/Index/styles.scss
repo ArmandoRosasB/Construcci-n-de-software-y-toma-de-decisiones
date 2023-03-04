@@ -1,0 +1,267 @@
+// Imports
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+//Variables
+$backgroundColor: #424344;
+$primaryColor: #AEFF1F;
+
+
+//Funciones
+@mixin Tech($justify-content-state){
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: $justify-content-state;
+    list-style: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: $backgroundColor;
+    color: white;
+    font-family:'Inter', sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+span{
+    color: $primaryColor;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#TrenoTeam{
+    width: 306px;
+    height: 242px;
+}
+
+#Bill{
+    width: 280px;
+    height: 280px;
+}
+
+#Thaphy{
+    width: 334px;
+    height: 214px;
+}
+
+.layout{
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer"
+    ;
+
+    grid-template-rows: auto auto 50px;
+
+    a{
+        color:$primaryColor;
+    }
+
+    .name{
+        height: 72px;
+    }
+
+    header{
+        width: 100%;
+        grid-area: header;
+        background: $backgroundColor;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+
+        .nombre{
+            margin-left: 30px;
+        }
+
+        nav{
+            margin-right: 30px;
+            ul{
+                list-style: none;
+                display: flex;
+
+                li{
+                    padding: 10px;
+                }
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: white;
+                    transition: all 300ms;
+                }
+                a:hover{
+                    transform: scale(1.1, 1.1);
+                    color: $primaryColor;
+                }
+            }
+        }
+
+    }
+
+    .content{
+        .space{
+            height:72px;
+        }
+
+        grid-area: content;
+        .preview{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            height: 100vh;
+            margin: 0 auto;
+
+            p{
+                font-size: 1.2rem;
+            }
+            .presentation{
+                width: 40%;
+            }
+            
+            button{
+                padding: 12px 22px;
+                background: $primaryColor;
+                border: none;
+                border-radius: 20px;
+                color: $backgroundColor;
+                font-weight: bold;
+                font-size: 1rem;
+
+            }
+            .photo{
+                img{
+                    width: 250px;
+                    height: 250px;
+                    margin-top: 60px;
+                    margin-left: 100px;
+                    border-radius: 300px;
+                }
+                
+            }
+        }
+
+        #about-me{
+            margin-left: 40px;
+            p{
+                font-size: 1.2rem;
+            }
+        }
+
+        #skills{
+            margin: 0px 40px;
+            display: flex;
+            flex-direction: column;
+
+            img{
+                width: 100px;
+                height: 100px;
+            }
+            .skill{
+                margin-bottom: 60px;
+                ul{
+                    @include Tech(space-evenly);
+                }
+            }           
+        }
+
+        #projects{
+            margin-left: 40px;
+
+            .project{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                margin: 0 auto;
+                margin-bottom: 50px;
+
+                .project-info{
+                    width: 50%;
+
+                    img{
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    ul{
+                        @include Tech(flex-start);
+
+                        li{
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #my-tec-life{
+            margin-left: 40px; 
+        }
+
+        #questions{
+            margin-left: 40px; 
+            margin-right: 40px;
+        }
+
+        #contact-me{
+            margin-left: 40px; 
+            margin-right: 40px;
+            P{
+                font-size: 1.2rem;
+            }
+
+            form{
+                fieldset{
+                    .inputs{
+                        display: flex;
+                        flex-direction: column;
+                        width: fit-content;
+
+                        input[type="text"]{
+                            padding: 2px 10px;
+                        }
+                    }
+                    button[type="submit"]{
+                        padding: 4px 10px;
+                        background: $primaryColor;
+                        border: none;
+                        border-radius: 15px;
+                        color: $backgroundColor;
+                        font-weight: bold;
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+    footer{
+        grid-area: footer;
+        background: $backgroundColor;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 40px;
+
+    }
+}

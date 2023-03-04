@@ -1,0 +1,6 @@
+Name: Laura
+LastName: Rosas
+$Email: alaurita1357@gmail.com
+Preferred programming language: Python
+Message: Hello I am Laura.
+
