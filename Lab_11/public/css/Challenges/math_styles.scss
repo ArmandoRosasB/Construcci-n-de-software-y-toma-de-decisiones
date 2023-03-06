@@ -1,0 +1,54 @@
+// Variables
+$primaryColor: #fe98d5;
+$backgroundColor: #3c4043;
+
+body{
+    background: $backgroundColor;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.color{
+    color: $primaryColor;
+}
+
+
+h1{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.nav{
+    margin-top: 30px;
+    margin-left: 30px;
+    
+    button{
+        background: $primaryColor;
+        color: white;
+        font-weight: bold;
+        border-radius: 15px;
+        padding: 6px 12px;
+        border: none;
+        margin-right: 20px;
+    }
+}
+
+#imagen{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+#tiempo{
+    p{
+        text-align: center;
+    }
+}
