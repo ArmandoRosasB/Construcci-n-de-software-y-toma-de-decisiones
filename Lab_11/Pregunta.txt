@@ -1,0 +1,1 @@
+El archivo package.json es un archivo donde se gurdan todas las dependencias o paquetes que contiene la aplicacion. Para que cualquier persona pueda ejecutar la aplicacion descargando todas las dependencias desde node.

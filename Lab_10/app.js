@@ -140,7 +140,7 @@ const server = http.createServer((request, response) => {
                 post.push(element.slice(element.indexOf('=') + 1));
             })
             
-            let text = `Name: ${post[0]}\nLastName: ${post[1]}\n$Email: ${post[2]}\nPreferred programming language: ${post[3]}\nMessage: ${post[4]}\n\n`;
+            let text = `Name: ${post[0]}\nLastName: ${post[1]}\nEmail: ${post[2]}\nPreferred programming language: ${post[3]}\nMessage: ${post[4]}\n\n`;
 
             toTextFile(post[0] + post[1], text.replaceAll("+", " "));
             
