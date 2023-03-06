@@ -1,0 +1,1 @@
+Existe una gran variedad de template engines para node, algunos son: Mustache, EJS, doT, Pug, HandleBars, entre otros.

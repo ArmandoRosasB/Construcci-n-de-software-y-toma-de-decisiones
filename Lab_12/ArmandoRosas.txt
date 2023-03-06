@@ -1,6 +1,0 @@
-Name: Armando
-LastName: Rosas
-$Email: A01704132@tec.mx
-Preferred programming language: C
-Message: Hello, this is a message.
-

@@ -1,0 +1,6 @@
+Name: Ramona
+LastName: Najera Fuentes
+$Email: a01423596@tec.mx
+Preferred programming language: C
+Message: Hola Armando
+

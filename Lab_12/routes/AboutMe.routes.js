@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const filesystem = require('fs');
 
+const messages = [];
+
 function fileExists(path) {
     try {
         let stats = filesystem.statSync(path);
@@ -41,10 +43,12 @@ router.get('/Portfolio', (request, response, next) => {
 
 router.post('/Portfolio', (request, response, next) => {
     const body = Object.values(request.body);
+    messages.push(request.body);
+
     let text = `Name: ${body[0]}\nLastName: ${body[1]}\n$Email: ${body[2]}\nPreferred programming language: ${body[3]}\nMessage: ${body[4]}\n\n`;
-    toTextFile(body[0] + body[1], text);
+    toTextFile(body[0] +" " + body[1], text);
     response.sendFile(path.join(__dirname, '..', 'views', 'AboutMe.html'));
 
 });
 
-module.exports = router;
+module.exports = {router, messages};

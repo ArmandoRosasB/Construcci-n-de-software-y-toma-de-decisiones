@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Messages/styles.css">
+    <title>My Friend's messages</title>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!--Cabecera-->
+        <header class="header">
+            <div class="logo">
+                <div class="play"></div>
+            </div>
+
+            <h1>MyMessages</h1>
+        </header>
+
+        <!--Barra de navegacion-->
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!--Contenido principal-->
+
+        <section class="content">
+            <!--aqui van los mensajes-->
+            <% if(array.length > 0) { %>
+                <% array.forEach(element => { %>
+                    <article class="message-item">
+                        <h3 class="title"><%= element.fname %> <%= element.lname %></h3>
+                        <h4> Programa en <%= element.Planguage %></h4>
+                        <h4>Correo: <%= element.email %></h4>
+                        <p class="description"><%= element.message %></p>
+        
+                        <button class="edit">Editar</button>
+                        <button class="delete">Borrar</button>
+                    </article>
+                <%})%>
+            <% } else { %>
+                <h1>No hay mensajes</h1>
+            <% } %>
+
+        </section>
+
+        <!--Pie de pagina-->
+        <footer class="footer">
+            &copy; Messages by Armando Rosas - <a href="https://www.linkedin.com/in/josearmandorosas/">Meet the creator</a>
+        </footer>
+    </div>
+    
+<%- include('includes/foot.ejs')%>

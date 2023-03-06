@@ -14,13 +14,16 @@ app.set('views', 'views');
 
 //Middlewares
 const rutasAboutMe = require('./routes/AboutMe.routes');
-app.use('/AboutMe', rutasAboutMe);
+app.use('/AboutMe', rutasAboutMe.router);
 
 const stuff = require('./routes/Stuff.routes');
 app.use('/Stuff', stuff);
 
 const login = require('./routes/Login.routes');
 app.use('/login', login);
+
+const friends = require('./routes/Messages.routes');
+app.use('/Friends', friends);
 
 
 app.use((request, response, next) => {
