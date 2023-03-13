@@ -1,8 +1,10 @@
-¿Qué beneficios encuentras en el estilo MVC?
-- Uno de los beneficios es que encuentro en ese estilo se separa en varios componentes, es decir, 
-se distribuye por varias capas. Esto hace que el codigo este mas estructurado, facilitando su mantenimiento,
-escalabilidad y solucion de errores.
+¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?
+ - Reutilizamos mucho codigo, ya que unicamente en la capa del modelo realizamos el
+ metodo SELECT e INSERT. Solo llamando a estos metodos podemos seleccionar
+ elementos e insertar, por lo que tenemos mas control y organizacion.
 
-¿Encuentras alguna desventaja en el estilo arquitectónico MVC?
-- Una desventaja de este modelo es que se requiere de una mayor cantidad de tiempo para el desarrollo inicial 
-de esta arquitectura.
+¿Qué es SQL injection y cómo se puede prevenir?
+- Es cuando el cliente escribe codigo SQL en algun lugar, como una forma,
+esperando obtener informacion de nuestra base de datos. 
+Se puede prevenir con buenas practicas al momento de ejecutar el INSERT INTO,
+como lo vimos en este laboratorio.
