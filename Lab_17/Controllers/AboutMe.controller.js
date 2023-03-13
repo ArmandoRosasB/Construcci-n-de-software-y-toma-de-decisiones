@@ -19,6 +19,8 @@ exports.post = (request, response, next) => {
         let cookies = request.get('Cookie');
         let contador;
 
+        request.session.alerta = "Mensaje registrado exitosamente";
+
         if (typeof cookies === 'string'){
             if (cookies.includes('consultas')){
                 contador =  Number.parseInt(cookies.split(';')[1].split('=')[1]);
@@ -32,7 +34,7 @@ exports.post = (request, response, next) => {
         request.session.email = nuevo.email;
         
         response.setHeader('Set-Cookie', [`ultimo_mensaje=${nuevo.fname}; HttpOnly`, `consultas=${contador}; HttpOnly`]);
-        response.redirect('/AboutMe/Portfolio');
+        response.redirect('/AboutMe/Messages');
     }) .catch (err => console.log(err));
 
     
@@ -43,9 +45,17 @@ exports.listar = (request, response, next) => {
     let contador;
     let mensaje;
 
+    let alerta = '';
+
+    if (request.session.alerta) {
+        alerta = request.session.alerta;
+        request.session.alerta = '';
+    }
+    
+    console.log(alerta === '');
     if (typeof cookies === 'string'){
         if (cookies.includes('consultas')){
-            contador = Number.parseInt(cookies.split(';')[1].trim().split('=')[1]);
+            contador = cookies.split(';')[1].trim().split('=')[1];
             mensaje =  cookies.split(';')[0].split('=')[1];
         }
     } else {
@@ -61,6 +71,7 @@ exports.listar = (request, response, next) => {
             ultimo_mensaje: mensaje,
             views: contador,
             email: request.session.email,
+            alerta: alerta,
         });
     })
 
