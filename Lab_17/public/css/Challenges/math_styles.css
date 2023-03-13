@@ -1,0 +1,47 @@
+body {
+  background: #3c4043;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.color {
+  color: #fe98d5;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.nav {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.nav button {
+  background: #fe98d5;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 6px 12px;
+  border: none;
+  margin-right: 20px;
+}
+
+#imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+#imagen img {
+  width: 200px;
+  height: 200px;
+}
+
+#tiempo p {
+  text-align: center;
+}
+
+/*# sourceMappingURL=math_styles.css.map */

@@ -15,26 +15,27 @@ exports.post = (request, response, next) => {
         Planguage: request.body.Planguage,
         message: request.body.message,
     });
-    nuevo.save();
+    nuevo.save().then(() => {
+        let cookies = request.get('Cookie');
+        let contador;
 
-    let cookies = request.get('Cookie');
-    let contador;
-
-
-    if (typeof cookies === 'string'){
-        if (cookies.includes('consultas')){
-            contador =  Number.parseInt(cookies.split(';')[1].split('=')[1]);
+        if (typeof cookies === 'string'){
+            if (cookies.includes('consultas')){
+                contador =  Number.parseInt(cookies.split(';')[1].split('=')[1]);
+            }
         }
-    }
-     else {
-        contador = 0;
-    }
-    contador++;
+        else {
+            contador = 0;
+        }
+        contador++;
 
-    request.session.email = nuevo.email;
+        request.session.email = nuevo.email;
+        
+        response.setHeader('Set-Cookie', [`ultimo_mensaje=${nuevo.fname}; HttpOnly`, `consultas=${contador}; HttpOnly`]);
+        response.redirect('/AboutMe/Portfolio');
+    }) .catch (err => console.log(err));
+
     
-    response.setHeader('Set-Cookie', [`ultimo_mensaje=${nuevo.fname}; HttpOnly`, `consultas=${contador}; HttpOnly`]);
-    response.redirect('/AboutMe/Portfolio');
 }
 
 exports.listar = (request, response, next) => {
@@ -47,19 +48,26 @@ exports.listar = (request, response, next) => {
             contador = Number.parseInt(cookies.split(';')[1].trim().split('=')[1]);
             mensaje =  cookies.split(';')[0].split('=')[1];
         }
-    }
-    else {
+    } else {
         contador = 0;
         mensaje =  '';
         request.session.email = '';
     }
+    
+    Mensaje.fetchAll()
+    .then(([rows, fieldData]) => {
+        response.render('Messages', {
+            array: rows,
+            ultimo_mensaje: mensaje,
+            views: contador,
+            email: request.session.email,
+        });
+    })
 
-    response.render('Messages', {
-        array: Mensaje.fetchAll(),
-        ultimo_mensaje: mensaje,
-        views: contador,
-        email: request.session.email,
+    .catch(err => {
+        console.log(err);
     });
+    
 }
 
 
