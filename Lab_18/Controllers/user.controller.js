@@ -3,7 +3,13 @@ const Usuario = require('../Models/Users.model');
 const bcrypt = require('bcryptjs');
 
 exports.getlogin = (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'LoginExample.html'));
+    const mensaje = request.session.mensaje || '';
+    if(request.session.mensaje){
+        request.session.mensaje = '';
+    }
+    response.render('login', {
+        mensaje: mensaje,
+    })
 };
 
 exports.postlogin = (request, response, next) =>{
@@ -14,11 +20,12 @@ exports.postlogin = (request, response, next) =>{
             .then(doMatch => {
                 if (doMatch) {
                     request.session.isLoggedIn = true;
-                    request.session.user = request.body.username;
+                    request.session.nombre = rows[0].nombre;
                     return request.session.save(err => {
                         response.redirect('/AboutMe/Portfolio');
                     });
                 }
+                request.session.mensaje = 'Password and/or username incorrect';
                 response.redirect('/user/login');
             }).catch(err => {
                 response.redirect('/user/login');
@@ -37,7 +44,8 @@ exports.postlogin = (request, response, next) =>{
 
 
 exports.getsignin = (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'signIn.html'));
+    response.render('SignIn',{
+    });
 };
 
 exports.post_signup = (request, response, next) => {

@@ -4,7 +4,13 @@ const path = require('path');
 const Mensaje = require('../Models/Messages.models');
 
 exports.get = (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'AboutMe.html'))};
+    const username = request.session.nombre || '';
+    if(request.session.nombre){
+        request.session.nombre = '';
+    }
+    response.render('AboutMe', {
+        nombre: username,
+    })}
 
 
 exports.post = (request, response, next) => {

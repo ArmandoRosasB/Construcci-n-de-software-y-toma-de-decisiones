@@ -2,14 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path'); // The Path module provides a way of working with directories and file paths.
 const session = require('express-session');
+const isAuth = require('./is-Auth');
 const csrf = require('csurf'); // Protege nuestras peticiones POST
 
-const csrfProtection = csrf();
+
 
 const port = 3000;
 const app = express(); // Start server
 
-app.use(csrfProtection);
+
 
 app.use(session({
     secret: 'Creo que aqui tengo que poner un string complicado para poder hashear la sesion', 
@@ -24,12 +25,21 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+const csrfProtection = csrf();
+app.use(csrfProtection);
+
+app.use((request, response, next) => {
+    response.locals.csrfToken = request.csrfToken();
+    next();
+});
+      
+
 //Middlewares
 const AboutMe = require('./routes/AboutMe.routes');
-app.use('/AboutMe', AboutMe);
+app.use('/AboutMe', isAuth,AboutMe);
 
 const stuff = require('./routes/Stuff.routes');
-app.use('/Stuff', stuff);
+app.use('/Stuff',isAuth, stuff);
 
 const user = require('./routes/User.routes');
 app.use('/user', user);

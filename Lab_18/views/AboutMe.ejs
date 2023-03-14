@@ -24,6 +24,7 @@
         </header>
 
         <section class="content">
+    
             <div class="preview">
                 <div id="Me" class="presentation">
                     <h1>Hi, I am <span class = "PrimaryColor">Armando</span></h1>
@@ -206,6 +207,8 @@
                 <form action = "" method="POST">
                     <fieldset>
                         <legend>Message to <span class = "PrimaryColor">Armando</span></legend>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+
                         <div class="inputs">
                             <label for="name">Name:</label>
                             <input required type="text" id="name" name="fname">
