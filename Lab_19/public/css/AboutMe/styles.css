@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #424344;
+  color: white;
+  font-family: "Inter", sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+span {
+  color: #AEFF1F;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#TrenoTeam {
+  width: 306px;
+  height: 242px;
+}
+
+#Bill {
+  width: 280px;
+  height: 280px;
+}
+
+#Thaphy {
+  width: 334px;
+  height: 214px;
+}
+
+.layout {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-areas: "header" "content" "footer";
+  grid-template-rows: auto auto 50px;
+}
+.layout a {
+  color: #AEFF1F;
+}
+.layout .name {
+  height: 72px;
+}
+.layout header {
+  width: 100%;
+  grid-area: header;
+  background: #424344;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+}
+.layout header .nombre {
+  margin-left: 30px;
+}
+.layout header nav {
+  margin-right: 30px;
+}
+.layout header nav ul {
+  list-style: none;
+  display: flex;
+}
+.layout header nav ul li {
+  padding: 10px;
+}
+.layout header nav ul a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: all 300ms;
+}
+.layout header nav ul a:hover {
+  transform: scale(1.1, 1.1);
+  color: #AEFF1F;
+}
+.layout .content {
+  grid-area: content;
+}
+.layout .content .space {
+  height: 72px;
+}
+.layout .content .preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+  margin: 0 auto;
+}
+.layout .content .preview p {
+  font-size: 1.2rem;
+}
+.layout .content .preview .presentation {
+  width: 40%;
+}
+.layout .content .preview button {
+  padding: 12px 22px;
+  background: #AEFF1F;
+  border: none;
+  border-radius: 20px;
+  color: #424344;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.layout .content .preview .photo img {
+  width: 250px;
+  height: 250px;
+  margin-top: 60px;
+  margin-left: 100px;
+  border-radius: 300px;
+}
+.layout .content #about-me {
+  margin-left: 40px;
+}
+.layout .content #about-me p {
+  font-size: 1.2rem;
+}
+.layout .content #skills {
+  margin: 0px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.layout .content #skills img {
+  width: 100px;
+  height: 100px;
+}
+.layout .content #skills .skill {
+  margin-bottom: 60px;
+}
+.layout .content #skills .skill ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  list-style: none;
+}
+.layout .content #projects {
+  margin-left: 40px;
+}
+.layout .content #projects .project {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.layout .content #projects .project .project-info {
+  width: 50%;
+}
+.layout .content #projects .project .project-info img {
+  width: 100px;
+  height: 100px;
+}
+.layout .content #projects .project .project-info ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  list-style: none;
+}
+.layout .content #projects .project .project-info ul li {
+  margin-right: 10px;
+}
+.layout .content #my-tec-life {
+  margin-left: 40px;
+}
+.layout .content #questions {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.layout .content #contact-me {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.layout .content #contact-me P {
+  font-size: 1.2rem;
+}
+.layout .content #contact-me form fieldset .inputs {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+.layout .content #contact-me form fieldset .inputs input[type=text] {
+  padding: 2px 10px;
+}
+.layout .content #contact-me form fieldset button[type=submit] {
+  padding: 4px 10px;
+  background: #AEFF1F;
+  border: none;
+  border-radius: 15px;
+  color: #424344;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+.layout footer {
+  grid-area: footer;
+  background: #424344;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 40px;
+}
+
+/*# sourceMappingURL=styles.css.map */
