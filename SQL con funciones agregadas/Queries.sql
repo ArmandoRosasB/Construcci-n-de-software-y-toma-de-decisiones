@@ -49,7 +49,7 @@ que fue filmada con menor presupuesto).
 
 -- Query
 
-SELECT titulo, año
+SELECT titulo, año, MIN(presupuesto) AS 'Presupuesto'
 FROM Pelicula
 GROUP BY titulo
 HAVING presupuesto = MIN(presupuesto)
@@ -61,7 +61,8 @@ ORDER BY presupuesto DESC
 */
 
 -- Query
-SELECT MAX(sueldo)
+SELECT MAX(sueldo) AS 'Salario'
 FROM actor a, elenco e
 WHERE a.nombre = e.nombre AND a.sexo = 'F';
+
 
