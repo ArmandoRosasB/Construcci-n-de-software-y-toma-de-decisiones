@@ -1,0 +1,56 @@
+// Variables
+$primaryColor: #fe98d5;
+$backgroundColor: #3c4043;
+
+
+@mixin buttonFormat($paddingtopbottom){
+    background: $primaryColor;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: $paddingtopbottom 12px;
+    border: none;
+    margin-right: 20px;
+}
+
+body{
+    background: $backgroundColor;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.color{
+    color: $primaryColor;
+}
+
+.layout{
+    margin-left: 30px;
+
+    .nav{
+        margin-top: 30px;
+        
+        button{
+            @include buttonFormat(6px);
+        }
+    }
+
+    .head{
+        text-align: center;
+    }
+    .solution{
+        display: flex;
+        justify-content: space-evenly;
+
+        .tests{
+            button{
+                @include buttonFormat(5px);
+                margin-left: 8px;
+            }
+        }
+        
+
+    }
+    
+}

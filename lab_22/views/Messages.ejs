@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Messages/styles.css">
+    <title>My Friend's messages</title>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!--Cabecera-->
+        <header class="header">
+            <div class="logo">
+                <div class="play"></div>
+            </div>
+
+            <h1>MyMessages</h1>
+        </header>
+
+        <!--Barra de navegacion-->
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/Logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        
+        <section class="content">
+            <!--Contenido principal-->
+            <% if (alerta != '') { %>
+                <h2>Mensaje enviado exitosamente</h2>
+            <% } %>
+
+            <!--aqui van los mensajes-->
+            <% if(array.length > 0) { %>
+                <% array.forEach(element => { %>
+                    <article class="message-item">
+                        <div class="info">
+                            <h3 class="title"><%= element.fname %> <%= element.lname %></h3>
+                            <h4> Programa en <%= element.Planguage %></h4>
+                            <h4>Correo: <%= element.email %></h4>
+                            <p class="description"><%= element.message %></p>
+            
+                            <button class="edit">Editar</button>
+                            <button class="delete">Borrar</button>
+                        </div>
+
+                        <img src="/uploads/<%= element.img%>" alt="Foto">
+                    </article>
+                <%})%>
+            <% } else { %>
+                <h1>No hay mensajes</h1>
+            <% } %>
+
+
+        </section>
+
+        <% if (ultimo_mensaje != '') { %>
+            <aside class="lateral">
+                <div class="search">
+                    <h3 class="title">Ultimo mensaje enviado por </h3>
+                    <p><%=ultimo_mensaje%></p>
+                    <% if (email) { %>
+                        <h3>Correo</h3>
+                        <p><%=email%></p>
+                    <%}%>
+                </div>
+
+                <div class="search">
+                    <h3 class="title">Numero de mensajes enviados:</h3>
+                    <p><%=views%></p>
+                </div>
+
+            </aside>
+        <% } %>
+
+        <!--Pie de pagina-->
+        <footer class="footer">
+            &copy; Messages by Armando Rosas - <a href="https://www.linkedin.com/in/josearmandorosas/">Meet the creator</a>
+        </footer>
+    </div>
+    
+<%- include('includes/foot.ejs')%>
