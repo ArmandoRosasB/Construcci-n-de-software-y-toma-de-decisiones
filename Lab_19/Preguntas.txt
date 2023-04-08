@@ -1,10 +1,30 @@
-¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?
- - Reutilizamos mucho codigo, ya que unicamente en la capa del modelo realizamos el
- metodo SELECT e INSERT. Solo llamando a estos metodos podemos seleccionar
- elementos e insertar, por lo que tenemos mas control y organizacion.
+¿En qué consiste el control de acceso basado en roles?
+- Consiste en la creacion de varios roles en un sistema y a cada rol se le asignan permisos. Por lo tanto, cada usuario dependiendo de su rol tiene acceso a diferentes partes del sistema.
 
-¿Qué es SQL injection y cómo se puede prevenir?
-- Es cuando el cliente escribe codigo SQL en algun lugar, como una forma,
-esperando obtener informacion de nuestra base de datos. 
-Se puede prevenir con buenas practicas al momento de ejecutar el INSERT INTO,
-como lo vimos en este laboratorio.
+
+Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.
+
+Sistema con RBAC (CANVAS)
+Es un sistema que ofrece servicios a instituciones educativas, basado en el flujo de tareas. Los roles mas relevantes son estudiante y maestro. Estos cuentan con diferentes privilegios. Por ejemplo: Los profesores pueden agregar tareas y los alumnos pueden visualizarlas.
+
+VENTAJAS Sistemas con RBAC
+- Seguridad en el sistema
+- Distincion de roles
+- Mejor control del sistema
+
+
+DESVENTAJAS Sitemas con RBAC
+- La creacion lleva tiempo, puesto que es necesario definir y determinar las funciones de cada puesto
+
+
+
+Sistema sin RBAC (Paginas de consulta, etc)
+Todos tienen acceso a todas las funcionalidades del sistema.
+
+VENTAJAS Sistemas sin RBAC
+- La creacion del sistema es mas sencilla y toma menos tiempo
+
+
+DESVENTAJAS Sitemas con RBAC
+- Decremento en la seguridad
+

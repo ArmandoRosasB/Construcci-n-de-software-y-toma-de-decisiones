@@ -20,7 +20,7 @@ const fileStorage = multer.diskStorage({
     },
 });
 
-const port = 3000;
+const port = 3200;
 const app = express(); // Start server
 
 

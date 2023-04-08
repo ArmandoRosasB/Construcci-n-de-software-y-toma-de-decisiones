@@ -75,6 +75,7 @@ exports.listar = (request, response, next) => {
     
     Mensaje.fetchAll()
     .then(([rows, fieldData]) => {
+        console.log(typeof fieldData);
         response.render('Messages', {
             array: rows,
             ultimo_mensaje: mensaje,
@@ -97,7 +98,7 @@ exports.get_buscar = (request, response, next) => {
     })
     .catch(error => {
         console.log(error);
-        response.status(500).json({message: "Internal Server Rrror"});
+        response.status(500).json({message: "Internal Server Error"});
     });
 }
 

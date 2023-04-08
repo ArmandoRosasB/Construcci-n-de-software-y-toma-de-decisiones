@@ -1,6 +1,5 @@
 document.getElementById('buscar-nombre').onkeyup = () => {
     const nombre = document.getElementById('buscar-nombre').value;
-    console.log(nombre);
 
     //función que manda la petición asíncrona
     fetch('/AboutMe/Messages/buscar/' + nombre, {
@@ -12,7 +11,7 @@ document.getElementById('buscar-nombre').onkeyup = () => {
     }).then(result => {
         return result.json(); //Regresa otra promesa
     }).then(array => {
-        console.log(array)
+
         let respuesta = "";
         if(array.nombres.length > 0) {
             array.nombres.forEach(element => { 
