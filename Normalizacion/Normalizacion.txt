@@ -1,0 +1,76 @@
+Utilidad de normalizar una DB
+
+- Permite escalabilidad (tiempo de vida de una BD)
+- Permite recuperacion de datos (facilita las consultas)
+- ELIMINAR ANOMALIAS (insercion, eliminacion, de actualizacion, consultas)
+
+
+--> Normalizar
+
+1FN (Si los valores de las celdas tenen valores atomicos)
+
+2FN (Se define uuna llave primaria)
+
+3FN(Descomponer)
+
+
+EJERCICIO 1
+
+
+Servicios(cliente, domicilio y estado , año, rentabasica 1, servicios adicionales 1, rentabasica 2, servicios adicionales 2, rentabasica 3, servicios adicionales 3, .... rentabasica 12, servicios adicionales 12)
+
+
+1FN => 
+
+Servicios(cliente, domicilio y estado , año, mes, rentabasica, servicios adicionales)
+
+2FN => 
+
+Servicios(numeroContrato, cliente, domicilio y estado , año, mes, rentabasica, servicios adicionales)
+
+3FN => 
+
+Estado(idEstado, Nombre)
+Cliente(idCliente, idCliente, nombre, domicilio, idEstado)
+Servicios(idServicio, descripcion, tarifa)
+Pagos(idCliente, idServicio, fecha, monto)
+
+
+EJERCICIO 2
+
+Producción (Código de parte, Descripción de parte, Fecha,
+No. de operador, nombre del operador y cantidad producida en Línea 1 Turno 1,
+No. de operador, nombre del operador y cantidad producida en Línea 1 Turno 2,
+No. de operador, nombre del operador y cantidad producida en Línea 1 Turno 3,
+No. de operador, nombre del operador y cantidad producida en Línea 2 Turno 1,
+No. de operador, nombre del operador y cantidad producida en Línea 2 Turno 2,
+No. de operador, nombre del operador y cantidad producida en Línea 2 Turno 3,
+No. de operador, nombre del operador y cantidad producida en Línea 3 Turno 1,
+No. de operador, nombre del operador y cantidad producida en Línea 3 Turno 2,
+No. de operador, nombre del operador y cantidad producida en Línea 3 Turno 3)
+
+3FN =>
+
+Parte(codigoParte, descripcion)
+Operador(noOperador, nombre)
+Produccion(noOperador, codigoParte, *idLinea*, *idTurno*, fecha, cantidad)
+Linea(idLinea, descripcion)
+Turno(idTurno, nombre, horasInicio, horasFin)
+
+EJERCICIO 3
+
+Facturación (Nombre del cliente y  Dirección , Fecha y  Hora, Duración,
+Número de teléfono de origen, Entidad federativa de origen, Ciudad de origen,
+Número de teléfono de destino, Entidad federativa de destino, Ciudad de destino,
+Tarifa por minuto entre ciudad de origen y ciudad de destino,
+Fecha de inicio del período de facturación,
+Fecha final del período de facturación)
+
+
+3FN => 
+
+Cliente(idCliente, nombre, direccion, telefono, ciudad, entidad)
+Llamada(idLlamada, duracion, fecha, hora, *idClienteDestino, idClienteOrigen*)
+Facturacion(idFacturacion, *idLlamada*, inicioPeriodo, finPeriodo)
+Tarifas(idCiudadOrigen, idCiudadDestino, tarifaPorMinuto)
+Ciudad(idCiudad, nombre)
