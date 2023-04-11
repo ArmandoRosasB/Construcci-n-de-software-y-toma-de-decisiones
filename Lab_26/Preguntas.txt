@@ -1,27 +1,6 @@
-¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications?
-- AJAX es una tecnica que permite desarrollar aplicaciones asíncronas.
-- RIA: Combinación de las ventajas que ofrecen las aplicaciones web y las aplicaciones tradicionales. Buscan mejorar la experiencia y productividad del usuario.
-
-No se producen recargas de página, ya que desde el principio se carga toda la aplicación, y solo se produce comunicación con el servidor cuando se necesitan datos
-
-Por lo tanto, la tecnica de AJAX permite dar esta caracteristica asincrona a las aplicaciones web permitiendo aplicaciones dinamicas y no hay necesidad de refrescar completamente la pagina. 
-
-¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?
-
-- La parte que se ejecuta o desarrolla en la parte del cliente hace que la exposición o superficie de ataque sea mayor. La revelación de la lógica de la aplicación hace que los posibles atacantes conozcan parte del código, ya que éste reside en la parte del cliente.
-
-- Las validaciones se hacen tanto del lado del cliente como del servidor
-
-Esto hace que el usuario o atacante pueda estudiar e inferir cierta parte de la lógica, y utilizarlo para llevar a cabo acciones maliciosas sobre la lógica de la aplicación. 
+Paquetes para google OAuth
+passport
+passport-google-oauth20
 
 
-¿Qué es JSON?
-- Es un formato de texto sencillo para el intercambio de datos
-
-
-REFERENCIAS
-
-- https://www.ibm.com/docs/es/baw/20.x?topic=formats-javascript-object-notation-json-format
-- https://www.flu-project.com/2014/04/seguridad-en-ajax-parte-i.html
-
-- https://www.monografias.com/trabajos89/ria-aplicaciones-internet-enriquecidas/ria-aplicaciones-internet-enriquecidas 
+¿Qué ventajas y desventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?

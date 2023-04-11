@@ -4,9 +4,9 @@ const path = require('path');
 const Mensaje = require('../Models/Messages.models');
 
 exports.get = (request, response, next) => {
-    const username = request.session.nombre || '';
-    if(request.session.nombre){
-        request.session.nombre = '';
+    const username = request.nombre || '';
+    if(request.nombre){
+        request.nombre = '';
     }
     response.render('AboutMe', {
         nombre: username,

@@ -1,19 +1,15 @@
-$primary: rgb(23, 228, 239);
+$primary: rgb(239, 124, 23);
 
 body{
     margin: 0;
     padding: 0;
 }
 
-.p-color{
+.color{
     color: $primary;
     transition: all 300ms;
 }
 
-.not-color{
-    color: grey;
-    transition: all 300ms;
-}
 
 .layout{
     width: 100%;
@@ -42,84 +38,20 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0px 50px;
+        text-align: center;
+        height: 100vh;
 
-        .Page-Info{
-            width: 60%;
-
-            align-items: center;
-            margin: 0 auto;
-
-            h1{
-                font-size: 2rem;
-            }
-            p{
-                font-size: 2rem;
-            }
+        a{
+            text-decoration: none;
+            font-weight: bold;
+            padding: 20px;
+            border: 2px solid black;
+            font-size: 3rem;
+        }
+        a:hover{
+            cursor: pointer;
         }
 
-        .form{
-            width: 40%;
-            display: grid;
-            grid-template-areas:
-            "fieldset"
-            "bar";
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            fieldset{
-                grid-area: fieldset;
-                width: 300px;
-                border: none;
-                box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.2);
-                text-align: center;
-                .inputs {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: left;
-                    align-items: center;
-    
-                    input{
-                        width: fit-content;
-                        margin-bottom: 20px;
-                        border-radius: 5px;
-                        padding: 4px 8px;
-                    }
-                }
-                
-            }
-
-            #Go {
-                input{
-                    border-radius: 8px;
-                    background: $primary;
-                    padding: 5px 20px;
-                    border: none;
-                }
-            }
-            
-            #pwd-security{
-                grid-area: bar;
-                width: 300px;
-                background-color: #ddd;
-                margin-top: 30px;
-
-                #progress-bar{
-                    width: 0%;
-                    height: 15px;
-                    background-color: $primary;
-                }
-            }
-
-            #advice{
-                background: $primary;
-                border-radius: 10px;
-                padding: 3px 8px;
-                margin-top: 10px;
-            }
-
-        }
     }
 
     footer{

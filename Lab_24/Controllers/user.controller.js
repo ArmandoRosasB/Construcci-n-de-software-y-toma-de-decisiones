@@ -67,7 +67,8 @@ exports.post_signup = (request, response, next) => {
         password: request.body.password,
     });
 
-    usuario.save()
+    usuario.save();
+    usuario.addRol()
     .then(([rows, fieldData]) => {
         response.redirect('/user/login');
     }).catch((error) => {console.log(error)});

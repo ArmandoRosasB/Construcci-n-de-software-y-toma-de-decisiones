@@ -14,10 +14,19 @@ module.exports = class Usuario {
         .then((password_cifrado) => {
             return db.execute(`
                 INSERT INTO usuarios (nombre, username, password)
-            values (?, ?, ?)
+            values (?, ?, ?);
+                
             `, [this.nombre, this.username, password_cifrado]);
         })
         .catch((error) => {console.log(error)});
+    }
+    addRol() {
+
+        return db.execute(`
+            INSERT INTO usuario_rol (idUsuario, idRol) VALUES (?, ?)
+            
+        `, [this.username, '2']);
+
     }
 
     static fetchOne(username){
@@ -32,7 +41,7 @@ module.exports = class Usuario {
         return db.execute(`
         SELECT p.nombre
         FROM usuarios u, usuario_rol ur, roles r, rol_privilegio rp, privilegios p
-        WHERE u.id = ur.idUsuario AND ur.idRol = r.id AND rp.idRol = r.id
+        WHERE u.username = ur.idUsuario AND ur.idRol = r.id AND rp.idRol = r.id
         AND rp.idPrivilegio = p.id AND u.nombre = ?
         `, [name]);
     }

@@ -3,13 +3,8 @@ body {
   padding: 0;
 }
 
-.p-color {
-  color: rgb(23, 228, 239);
-  transition: all 300ms;
-}
-
-.not-color {
-  color: grey;
+.color {
+  color: rgb(239, 124, 23);
   transition: all 300ms;
 }
 
@@ -33,68 +28,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 50px;
-}
-.layout .content .Page-Info {
-  width: 60%;
-  align-items: center;
-  margin: 0 auto;
-}
-.layout .content .Page-Info h1 {
-  font-size: 2rem;
-}
-.layout .content .Page-Info p {
-  font-size: 2rem;
-}
-.layout .content .form {
-  width: 40%;
-  display: grid;
-  grid-template-areas: "fieldset" "bar";
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.layout .content .form fieldset {
-  grid-area: fieldset;
-  width: 300px;
-  border: none;
-  box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.2);
   text-align: center;
+  height: 100vh;
 }
-.layout .content .form fieldset .inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: center;
+.layout .content a {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 20px;
+  border: 2px solid black;
+  font-size: 3rem;
 }
-.layout .content .form fieldset .inputs input {
-  width: fit-content;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  padding: 4px 8px;
-}
-.layout .content .form #Go input {
-  border-radius: 8px;
-  background: rgb(23, 228, 239);
-  padding: 5px 20px;
-  border: none;
-}
-.layout .content .form #pwd-security {
-  grid-area: bar;
-  width: 300px;
-  background-color: #ddd;
-  margin-top: 30px;
-}
-.layout .content .form #pwd-security #progress-bar {
-  width: 0%;
-  height: 15px;
-  background-color: rgb(23, 228, 239);
-}
-.layout .content .form #advice {
-  background: rgb(23, 228, 239);
-  border-radius: 10px;
-  padding: 3px 8px;
-  margin-top: 10px;
+.layout .content a:hover {
+  cursor: pointer;
 }
 .layout footer {
   display: flex;

@@ -4,36 +4,51 @@ const bcrypt = require('bcryptjs');
 module.exports = class Usuario {
 
     constructor(nuevo_usuario) {
+        this.id = nuevo_usuario.id || "johndoe";
         this.nombre = nuevo_usuario.nombre || 'John Doe';
         this.username = nuevo_usuario.username || 'johndoe';
-        this.password = nuevo_usuario.password || 'johndoejohndoe';
     }
 
     save() {
-        return bcrypt.hash(this.password, 12)
-        .then((password_cifrado) => {
-            return db.execute(`
-                INSERT INTO usuarios (nombre, username, password)
-            values (?, ?, ?)
-            `, [this.nombre, this.username, password_cifrado]);
-        })
-        .catch((error) => {console.log(error)});
+        return db.execute(`
+            INSERT INTO usuarios (id, nombre, username)
+        values (?, ?, ?);
+            
+        `, [this.id, this.nombre, this.username]);
+        
+    }
+    addRol() {
+
+        return db.execute(`
+            INSERT INTO usuario_rol (idUsuario, idRol) VALUES (?, ?)
+            
+        `, [this.id, '2']);
+
     }
 
-    static fetchOne(username){
+    static fetchOne(id){
         return db.execute(`
-            SELECT nombre, password 
+            SELECT id, nombre, username
             FROM usuarios
-            WHERE username = ?
-        `, [username]);
+            WHERE id = ?
+        `, [id]);
+    }
+
+    static findById(id){
+        return db.execute(`
+            SELECT id, nombre, username
+            FROM usuarios
+            WHERE id = ?
+        `, [id]);
     }
 
     static fetchPrivilegios(name) {
+        console.log(name)
         return db.execute(`
         SELECT p.nombre
         FROM usuarios u, usuario_rol ur, roles r, rol_privilegio rp, privilegios p
         WHERE u.id = ur.idUsuario AND ur.idRol = r.id AND rp.idRol = r.id
-        AND rp.idPrivilegio = p.id AND u.nombre = ?
+        AND rp.idPrivilegio = p.id AND u.id = ?
         `, [name]);
     }
 

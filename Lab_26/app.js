@@ -5,7 +5,10 @@ const session = require('express-session');
 const multer = require('multer');
 const isAuth = require('./util/is-Auth');
 const csrf = require('csurf'); // Protege nuestras peticiones POST
-
+const cookieSession = require("cookie-session");
+const keys = require("./config/keys")
+const passport = require("passport")
+const passportSetup = require("./config/passport-setup");
 
 //fileStorage: Es nuestra constante de configuración para manejar el almacenamiento
 const fileStorage = multer.diskStorage({
@@ -20,7 +23,7 @@ const fileStorage = multer.diskStorage({
     },
 });
 
-const port = 3200;
+const port = 3000;
 const app = express(); // Start server
 
 
@@ -40,6 +43,10 @@ app.use(multer({ storage: fileStorage }).single('archivo'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 const csrfProtection = csrf();
 app.use(csrfProtection);
 
@@ -58,8 +65,8 @@ app.use('/AboutMe', isAuth,AboutMe);
 const stuff = require('./routes/Stuff.routes');
 app.use('/Stuff',isAuth, stuff);
 
-const user = require('./routes/User.routes');
-app.use('/user', user);
+const auth = require('./routes/Auth.routes');
+app.use('/auth', auth);
 
 
 const home = require('./routes/Home.routes');
